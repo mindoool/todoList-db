@@ -1,5 +1,5 @@
 from . import api
-from application.model.post import Post
+from application.models.post import Post
 
 
 @api.route("/")
