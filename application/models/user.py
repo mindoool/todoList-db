@@ -16,9 +16,6 @@ class User(db.Model, TimeStampMixin, SerializableModelMixin):
 
     # 추가정보
     company = db.Column(db.String(30))
-    recommendation = db.Column(db.String(100))
-    profile_url = db.Column(db.String(2000))
-    profile_serving_url = db.Column(db.String(2200))
 
     def __repr__(self):
         return '<User %r>' % self.id

@@ -10,7 +10,7 @@ from application.lib.encript.encript_helper import password_encode
 
 # login
 @api.route('/users/login', methods=['POST'])
-def get_users():
+def login():
     request_params = request.get_json()
     email = request_params.get('email')
     password = request_params.get('password')
@@ -29,8 +29,8 @@ def get_users():
     encoded_password = password_encode(password)
     q = db.session.query(User) \
         .filter(User.email == email,
-                User.password == encoded_password,
-                User.is_deleted == 0)
+                User.password == encoded_password
+                )
     user = q.first()
 
     if user is None:
