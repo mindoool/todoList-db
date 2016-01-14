@@ -3,8 +3,10 @@ from application.models.mixin import TimeStampMixin
 from application.models.mixin import SerializableModelMixin
 
 
-class InstanceWork(db.Model, TimeStampMixin, SerializableModelMixin):
+class RegularWork(db.Model, TimeStampMixin, SerializableModelMixin):
     id = db.Column(db.Integer, primary_key=True)
-    description = db.Column(db.String(100))
+    title = db.Column(db.String(100))
+    items = db.Column(db.String(1000))
+    due = db.Column(db.DateTime)
     is_completed = db.Column(db.Boolean, default=False)
     completed_time = db.Column(db.DateTime, default=db.func.current_timestamp())
